@@ -20,12 +20,15 @@ export default function Home() {
   return (
       <main className="p-8">
         <h1 className="text-xl font-bold">MailhiotTV 🎥</h1>
-        <ul>
+        <div>
           {videos.map((v) => (
-              <li key={v.id}>{v.title}</li>
+              <div key={v.id}>
+                  {v.title}
+                  <VideoPlayer src={v.url} />
+                  {v.description}
+              </div>
           ))}
-        </ul>
-          <VideoPlayer src="/videos/video-171951020/index.m3u8" />
+        </div>
       </main>
   );
 }
