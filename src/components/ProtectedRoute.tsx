@@ -11,14 +11,11 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
   useEffect(() => {
     const checkSession = async () => {
       const { data } = await supabase.auth.getSession();
-      if (!data.session) {
-        router.push('/login');
-      } else {
-        setLoading(false);
-      }
+      if (!data.session) router.push('/login');
+      else setLoading(false);
     };
     checkSession();
-  }, []);
+  }, [router]); // Ajout de router ici
 
   if (loading) return <div className="p-6">Chargement...</div>;
 
