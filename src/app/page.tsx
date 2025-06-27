@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
+import VideoPlayer from '@/components/VideoPlayer';
 
 export default function Home() {
   const [videos, setVideos] = useState<any[]>([]);
@@ -24,6 +25,7 @@ export default function Home() {
               <li key={v.id}>{v.title}</li>
           ))}
         </ul>
+          <VideoPlayer src="/videos/video-171951020/index.m3u8" />
       </main>
   );
 }
